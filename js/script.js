@@ -5,11 +5,13 @@ const playButton = document.querySelector('button');
 
 const bombsNumbers = [];
 
-let i = 0;
+let i = null;
+
 
 
 playButton.addEventListener('click', function() {
-   
+    
+    
     for(i = 1; i <= 100; i++) {
         const container = document.querySelector('.container');
         const square = document.createElement('div');
@@ -17,38 +19,54 @@ playButton.addEventListener('click', function() {
         square.append(i);
         container.append(square);
         console.log('square', square, typeof square);
-
+        
         square.addEventListener('click', function() {
             square.classList.add('clicked');
             console.log(this.innerHTML);
+            for (let j = 0; j < bombsNumbers.length; j++) {
+                if (i == bombsNumbers[j]) {
 
-            for (let count = 0; count < bombsNumbers.length; count++) {
-                
-                if (i == bombsNumbers[count]) {
-
+                  console.log('Hai perso');
+                    
                     
                 }
-            }
+            
+           }
+           
+                
+            
         })
+            
+    }                   
     
-    }
     
+        
     
+        
 })
 
 
-
+    
 while (bombsNumbers.length < 16) {
     const oneNumber = randomNumbers(1, 16);
-    
+
 
     if (!bombsNumbers.includes(oneNumber)) {
-        bombsNumbers.push(oneNumber);
+         bombsNumbers.push(oneNumber);
 
-        
     }
     
-}
+   
+    
+}             
+
+
+
+
+
+
+
+    
 console.log(bombsNumbers);
 
 
@@ -72,20 +90,20 @@ console.log(bombsNumbers);
 
 
 
-function myBoard() {
+// function myBoard() {
 
-    for(let i = 1; i <= 100; i++) {
-        const container = document.querySelector('.container');
-        const square = document.createElement('div');
-        square.classList.add('square');
-        square.append(i);
-        container.append(square);
-        console.log('square', square, typeof square);
+//     for(let i = 1; i <= 100; i++) {
+//         const container = document.querySelector('.container');
+//         const square = document.createElement('div');
+//         square.classList.add('square');
+//         square.append(i);
+//         container.append(square);
+//         console.log('square', square, typeof square);
 
-        square.addEventListener('click', function() {
-            square.classList.add('clicked');
-            console.log(this.innerHTML);
-        })
+//         square.addEventListener('click', function() {
+//             square.classList.add('clicked');
+//             console.log(this.innerHTML);
+//         })
     
-    }
-}
+//     }
+// }
